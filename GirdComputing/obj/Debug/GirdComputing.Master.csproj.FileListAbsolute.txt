@@ -1,0 +1,5 @@
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GirdComputing\bin\Debug\GirdComputing.Master.dll
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GirdComputing\bin\Debug\GirdComputing.Master.pdb
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GirdComputing\obj\Debug\GirdComputing.Master.csprojResolveAssemblyReference.cache
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GirdComputing\obj\Debug\GirdComputing.Master.dll
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GirdComputing\obj\Debug\GirdComputing.Master.pdb

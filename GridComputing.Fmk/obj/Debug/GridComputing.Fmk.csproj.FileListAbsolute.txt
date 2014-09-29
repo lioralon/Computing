@@ -1,0 +1,5 @@
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Fmk\bin\Debug\GridComputing.Fmk.dll
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Fmk\bin\Debug\GridComputing.Fmk.pdb
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Fmk\obj\Debug\GridComputing.Fmk.csprojResolveAssemblyReference.cache
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Fmk\obj\Debug\GridComputing.Fmk.dll
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Fmk\obj\Debug\GridComputing.Fmk.pdb

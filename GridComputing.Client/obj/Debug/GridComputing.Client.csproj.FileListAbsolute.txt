@@ -1,0 +1,5 @@
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Client\bin\Debug\GridComputing.Client.dll
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Client\bin\Debug\GridComputing.Client.pdb
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Client\obj\Debug\GridComputing.Client.csprojResolveAssemblyReference.cache
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Client\obj\Debug\GridComputing.Client.dll
+c:\users\luzhanpeng\documents\visual studio 2013\Projects\GirdComputing\GridComputing.Client\obj\Debug\GridComputing.Client.pdb
