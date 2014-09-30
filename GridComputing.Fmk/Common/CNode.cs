@@ -11,16 +11,19 @@
 
 using Computing.Fmk.Interface;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Computing.Fmk.Common
 {
     [Serializable]
     public class CNode
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string NodeId { get; set; }
-        public ICWorkerRegister WorkerRegister { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public IWorker WorkerService { get; set; }
     }
 }

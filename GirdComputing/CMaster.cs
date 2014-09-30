@@ -9,21 +9,22 @@
 // Modified by 
 //======================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using Computing.Basic.Common;
 using Computing.Basic.Helper;
 using Computing.Fmk.Common;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace Computing.Master
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CMaster : CObjectManager<string, CNode>
     {
         private readonly CObjectManager<string,string>  _cAppdominManager = new CObjectManager<string, string>();
-        private long _maxAppdominId = 0L;
+        private long _maxAppdominId;
         private readonly Random _random = new Random();
 
         public CMaster(long maxAppdominId)
@@ -47,7 +48,7 @@ namespace Computing.Master
                 {
                     throw new NullReferenceException("没有worker来运行该任务。");
                 }
-                return randomNode.WorkerRegister.Run(task, null);
+                return randomNode.WorkerService.Run(task, null);
             }
             if (_cAppdominManager.Contains(targetDomainId)==false)
             {
@@ -60,7 +61,7 @@ namespace Computing.Master
                 throw new Exception(string.Format("支撑任务的work:{0},被移除了。",targetDomainId));
             }
 
-            return node.WorkerRegister.Run(task, targetDomainId);
+            return node.WorkerService.Run(task, targetDomainId);
 
 
         }
@@ -71,7 +72,7 @@ namespace Computing.Master
         /// <returns></returns>
         private CNode GetRandomCNode()
         {
-            return base.ObjectCount > 0 ? base.GetAllItems()[_random.Next(base.ObjectCount)] : null;
+            return ObjectCount > 0 ? GetAllItems()[_random.Next(ObjectCount)] : null;
         }
 
 
@@ -92,7 +93,7 @@ namespace Computing.Master
             Interlocked.Increment(ref _maxAppdominId);
 
             var id = string.Format("{0}:{1}", node.NodeId, _maxAppdominId);
-            node.WorkerRegister.CreateAppDomain(assemblyData);
+            node.WorkerService.CreateAppDomain(assemblyData);
             _cAppdominManager.Add(id,node.NodeId);
             return id;
         }
@@ -104,35 +105,37 @@ namespace Computing.Master
         public override void Remove(string key)
         {
             var keybyObj = _cAppdominManager.GetKeysByObj(key);
-            if (keybyObj.HasElements())
+            if (!keybyObj.HasElements())
             {
-                foreach (var objKey in keybyObj)
-                {
-                    _cAppdominManager.Remove(objKey);
-                }    
+                return;
             }
-            
+            foreach (var objKey in keybyObj)
+            {
+                _cAppdominManager.Remove(objKey);
+            }
         }
 
         /// <summary>
         /// 终止任务
         /// </summary>
         /// <param name="targetId"></param>
-        public void TerminateAppDomain(string targetId)
+        public bool TerminateAppDomain(string targetId)
         {
+        
             if (!_cAppdominManager.Contains(targetId))
             {
-                return;
+                return false;
             }
 
             var node = base.Get(_cAppdominManager.Get(targetId));
-
+            var isSuccess = false;
             if (node!=null)
             {
-                node.WorkerRegister.TerminateAppDomain(targetId);
+                isSuccess = node.WorkerService.TerminateAppDomain(targetId);
             }
     
             base.Remove(targetId);
+            return isSuccess;
         }
     }
 }

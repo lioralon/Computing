@@ -101,7 +101,7 @@ namespace Computing.Basic.Common
         /// <param name="key"></param>
         public virtual void Remove(TKey key)
         {
-            var target = default(TObject);
+            TObject target;
 
             lock (_locker)
             {

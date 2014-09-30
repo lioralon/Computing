@@ -9,17 +9,20 @@
 // Modified by 
 //======================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Computing.Fmk.Interface;
 using Computing.Fmk.Common;
+using Computing.Fmk.Interface;
+using System.Collections.Generic;
 
 namespace Computing.Master
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CService :ICService
     {
+
+        public CMaster CMaster { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -28,7 +31,7 @@ namespace Computing.Master
         /// <returns></returns>
         public object Run(CTask task, string targetId)
         {
-            return null;
+            return CMaster.Run(task, targetId);
         }
 
         /// <summary>
@@ -38,7 +41,7 @@ namespace Computing.Master
         /// <returns></returns>
         public string CreateAppDomain(IList<byte[]> assemblyList)
         {
-            return null;
+            return CMaster.CreateAppDomain(assemblyList);
         }
 
         /// <summary>
@@ -48,7 +51,7 @@ namespace Computing.Master
         /// <returns></returns>
         public bool TerminateAppDomain(string domainId)
         {
-            return true;
+            return CMaster.TerminateAppDomain(domainId);
         }
     }
 }

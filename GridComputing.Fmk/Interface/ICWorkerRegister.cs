@@ -7,10 +7,13 @@ using System.Text;
 
 namespace Computing.Fmk.Interface
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface ICWorkerRegister
     {
-        object Run(CTask task, string targetId);
-        string CreateAppDomain(IList<byte[]> assemblyList);
-        bool TerminateAppDomain(string domainId);
+        bool Register(CNode workNode);
+
+        bool UnRegister(string workNodeId);
     }
 }
